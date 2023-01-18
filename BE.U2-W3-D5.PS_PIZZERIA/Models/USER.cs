@@ -6,6 +6,7 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
     using System.Data.SqlClient;
+    using System.Linq;
 
     [Table("USER")]
     public partial class USER
@@ -31,33 +32,48 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         [StringLength(50)]
         public string Ruolo { get; set; }
 
+
         public static bool Autenticato(string username, string password)
-        {
-            SqlConnection con = Connessioni.GetConnection();
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM [USER] WHERE Username = @username and [Pass]=@Password", con);
-                cmd.Parameters.AddWithValue("username", username);
-                cmd.Parameters.AddWithValue("pass", password);
+        { 
+       
+            ModelDBcontext db = new ModelDBcontext();
+                var us = db.USER.Where(x => x.Username == username && x.Pass == password);
 
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
+                if (us != null)
                 {
-                    return true;
-                }
+                return true;
             }
-            catch (Exception ex)
+            else
             {
-
                 return false;
             }
-            finally
-            {
-                con.Close();
-            }
-            return false;
+
+
+        //    SqlConnection con = Connessioni.GetConnection();
+        //    try
+        //    {
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand("SELECT * FROM [USER] WHERE Username = @username and [Pass]=@Password", con);
+        //        cmd.Parameters.AddWithValue("username", username);
+        //        cmd.Parameters.AddWithValue("Password", password);
+
+        //        SqlDataReader reader = cmd.ExecuteReader();
+
+        //        if (reader.HasRows)
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+           //return false;
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
