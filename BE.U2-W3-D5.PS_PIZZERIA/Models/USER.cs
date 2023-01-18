@@ -22,10 +22,13 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name ="Username")]
         public string Username { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Password")]
+
         public string Pass { get; set; }
 
         [Required]

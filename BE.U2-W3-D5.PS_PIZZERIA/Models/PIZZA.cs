@@ -20,6 +20,7 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Pizza")]
         public string NomePizza { get; set; }
 
         [Required]
@@ -28,6 +29,8 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
 
         [Required]
         [StringLength(10)]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
+
         public string Prezzo { get; set; }
 
         [Required]
