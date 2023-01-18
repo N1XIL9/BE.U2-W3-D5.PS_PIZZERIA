@@ -1,9 +1,11 @@
 ﻿body {
-    height:100vh;
+    height:100%;
+    width:100%;
     background-color: rgba(0,0,0,0.5);
-    background-image: url('img/menù-pizzeria_bianco-e-nero.jpeg');
+    background-image: url('img/sfondo.jpg');
+    /*background-image: url('img/menù-pizzeria_bianco-e-nero.jpeg');*/
     background-size: cover;
-    /* background-repeat: no-repeat;*/
+    /*background-repeat: no-repeat;*/
 }
 
 .body-content {
@@ -80,16 +82,31 @@ footer {
     padding: 10px;
     left: 0;
     right: 0;
-    position: absolute;
-    /*bottom:0;*/
-   
+    position: absolute !important;
+    /*bottom:0 !important;*/
 }
 
+
 .body-content {
-    
-    border-radius:15px;
-   
-    
+    /*position:relative;*/
+    /*height:100%;*/
+    border-radius:15px;   
+}
+
+dt{
+    color: orangered;
+}
+
+dd {
+    color: white;
+}
+
+.dl-horizontal{
+    padding:30px;
+}
+
+.dettagliPiz{
+    display:flex;
 }
 
 th, td {
@@ -107,8 +124,9 @@ label{
     padding:20px;
 }
 
-.flexCard{
-    display:flex;
+.flexCard {
+    display: flex;
+    justify-content: center;
 }
 
 .card {
@@ -148,5 +166,12 @@ h5{
 }
 
 #areaRiservata {
+    /*padding:10px;*/
     background-color: rgba(0,0,0,0.9);
+}
+
+#salva{
+    color:orangered;
+    padding:10px;
+    border: 1px solid orangered;
 }
