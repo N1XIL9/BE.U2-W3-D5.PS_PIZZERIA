@@ -11,36 +11,36 @@
         @Html.ActionLink("Crea Pizza", "Create")
     </p>
 
+    <div class="flexCard">
 
+        @foreach (var item in Model)
+        {
 
-    @foreach (var item in Model)
-    {
+            <div class="card" style="width: 18rem;">
 
-        <div class="card" style="width: 18rem;">
-
-            <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
-            <div class="card-body">
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.NomePizza)</h5>
-                <p class="card-text">@Html.DisplayFor(modelItem => item.Ingredienti)</p>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Prezzo)</h5>
-
-            </div>
-            <div id="contBtn">
-                <div class="btn btn-primary">
-                    @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza })
+                <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.NomePizza)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Ingredienti)</p>
                 </div>
-                <div class="btn btn-primary">
-                    @Html.ActionLink("Dettagli", "Details", new { id = item.IdPizza })
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Prezzo)</h5>
+
                 </div>
-                <div class="btn btn-primary">
-                    @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
+                <div id="contBtn">
+                    <div class="btn btn-primary">
+                        @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza })
+                    </div>
+                    <div class="btn btn-primary">
+                        @Html.ActionLink("Dettagli", "Details", new { id = item.IdPizza })
+                    </div>
+                    <div class="btn btn-primary">
+                        @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-   
+        }
+    </div>
 
 
 

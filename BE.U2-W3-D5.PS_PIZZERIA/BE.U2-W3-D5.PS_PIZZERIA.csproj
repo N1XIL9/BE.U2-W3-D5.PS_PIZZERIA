@@ -159,9 +159,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\img\capricciosa.jpg" />
+    <Content Include="Content\img\carbonara.jpg" />
     <Content Include="Content\img\IMG_0034.JPG" />
     <Content Include="Content\img\margherita.jpg" />
     <Content Include="Content\img\Menù-Pizzeria_Bianco-e-Nero.jpeg" />
+    <Content Include="Content\img\napoletana.jpg" />
     <Content Include="Content\img\—Pngtree—pizza logo design_8363624.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

@@ -107,6 +107,10 @@ label{
     padding:20px;
 }
 
+.flexCard{
+    display:flex;
+}
+
 .card {
     margin: 5px;
     padding: 10px;
