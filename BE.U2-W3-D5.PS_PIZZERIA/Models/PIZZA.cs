@@ -28,10 +28,10 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         public string Ingredienti { get; set; }
 
         [Required]
-        [StringLength(10)]
+        
         [DisplayFormat(DataFormatString = "{0:C2}")]
 
-        public string Prezzo { get; set; }
+        public decimal Prezzo { get; set; }
 
         [Required]
         [StringLength(50)]

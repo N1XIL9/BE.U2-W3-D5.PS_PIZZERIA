@@ -30,8 +30,8 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PIZZA>()
-                .Property(e => e.Prezzo)
-                .IsFixedLength();
+                .Property(e => e.Prezzo);
+                
 
             modelBuilder.Entity<PIZZA>()
                 .HasMany(e => e.DETTAGLIO)
