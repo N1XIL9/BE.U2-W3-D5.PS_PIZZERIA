@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BE.U2_W3_D5.PS_PIZZERIA.Models.PIZZA>
+
+@{
+    ViewBag.Title = "ListaAdmin";
+}
+
+<h2>AMMINISTRAZIONE</h2>
+
+<div class="container" id="areaRiservata">
+    <p>
+        @Html.ActionLink("Crea pizza", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomePizza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingredienti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomePizza)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ingredienti)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezzo)
+                </td>
+                <td>
+                    <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" width="100" />
+                </td>
+                <td>
+                    @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza }) |
+                    @Html.ActionLink("Dettagli", "Details", new { id = item.IdPizza }) |
+                    @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

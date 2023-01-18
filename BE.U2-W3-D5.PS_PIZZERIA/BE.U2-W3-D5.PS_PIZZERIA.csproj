@@ -227,6 +227,7 @@
     <Content Include="Views\MenuPizza\Details.cshtml" />
     <Content Include="Views\MenuPizza\Edit.cshtml" />
     <Content Include="Views\MenuPizza\Index.cshtml" />
+    <Content Include="Views\MenuPizza\ListaAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

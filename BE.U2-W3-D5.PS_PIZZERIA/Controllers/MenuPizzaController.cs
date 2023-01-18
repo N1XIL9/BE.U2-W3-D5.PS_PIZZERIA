@@ -21,6 +21,13 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
             return View(db.PIZZA.ToList());
         }
 
+
+        [Authorize]
+        public ActionResult ListaAdmin()
+        {
+            return View(db.PIZZA.ToList());
+        }
+
         // GET: MenuPizza/Details/5
         public ActionResult Details(int? id)
         {

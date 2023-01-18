@@ -7,9 +7,9 @@
 <h2>MENU</h2>
 
 
-    <p>
+    @*<p>
         @Html.ActionLink("Crea Pizza", "Create")
-    </p>
+    </p>*@
 
     <div class="flexCard">
 
@@ -27,7 +27,7 @@
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Prezzo)</h5>
 
                 </div>
-                <div id="contBtn">
+                @*<div id="contBtn">
                     <div class="btn btn-primary">
                         @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza })
                     </div>
@@ -37,7 +37,7 @@
                     <div class="btn btn-primary">
                         @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
                     </div>
-                </div>
+                </div>*@
             </div>
         }
     </div>
