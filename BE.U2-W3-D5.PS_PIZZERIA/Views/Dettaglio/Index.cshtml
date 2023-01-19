@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>DETTAGLI ORDINI</h2>
+<h2>DETTAGLI DEGLI ORDINI</h2>
 
 <div class="container" id="areaRiservata">
 
@@ -38,9 +38,9 @@
                     @Html.DisplayFor(modelItem => item.Quantita)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.IdDettaglio }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.IdDettaglio }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.IdDettaglio })
+                    @Html.ActionLink("Modifica", "Edit", new { id = item.IdDettaglio }) |
+                   
+                    @Html.ActionLink("Elimina", "Delete", new { id = item.IdDettaglio })
                 </td>
             </tr>
         }
