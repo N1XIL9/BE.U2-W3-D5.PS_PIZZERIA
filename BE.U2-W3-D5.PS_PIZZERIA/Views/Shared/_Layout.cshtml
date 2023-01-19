@@ -27,17 +27,17 @@
                 <ul class="navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li class="nav-item">@Html.ActionLink("🖐️ Esci", "LogOut", "Home") </li>
+                        <li class="nav-item">@Html.ActionLink("🖐 ESCI", "LogOut", "Home") </li>
                     }
                     else
                     {
-                        <li class="nav-item">@Html.ActionLink("🔒 Autenticati", "Login", "Home") </li>
+                        <li class="nav-item">@Html.ActionLink("🔒 ENTRA", "Login", "Home") </li>
                     }
-                    <li class="nav-item">@Html.ActionLink("Area Riservata", "ListaAdmin", "MenuPizza")</li>
-                    <li class="nav-item">@Html.ActionLink("Menu", "Index", "MenuPizza")</li>
+                    <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "MenuPizza")</li>
+                    <li class="nav-item">@Html.ActionLink("MENU", "Index", "MenuPizza")</li>
 
-                    <li class="nav-item">@Html.ActionLink("Informazioni", "About", "Home")</li>
-                    <li class="nav-item">@Html.ActionLink("Contatto", "Contact", "Home")</li>
+                    <li class="nav-item">@Html.ActionLink("INFO", "Index", "Ordine")</li>
+                    <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Dettaglio")</li>
                 </ul>
 
             </div>

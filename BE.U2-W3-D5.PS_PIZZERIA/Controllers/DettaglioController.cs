@@ -10,128 +10,116 @@ using BE.U2_W3_D5.PS_PIZZERIA.Models;
 
 namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
 {
-    [Authorize]
-    public class MenuPizzaController : Controller
+    public class DettaglioController : Controller
     {
         private ModelDBcontext db = new ModelDBcontext();
 
-        // GET: MenuPizza
+        // GET: Dettaglio
         public ActionResult Index()
         {
-            return View(db.PIZZA.ToList());
+            var dETTAGLIO = db.DETTAGLIO.Include(d => d.ORDINE).Include(d => d.PIZZA);
+            return View(dETTAGLIO.ToList());
         }
 
-
-        [Authorize]
-        public ActionResult ListaAdmin()
-        {
-            return View(db.PIZZA.ToList());
-        }
-
-        // GET: MenuPizza/Details/5
+        // GET: Dettaglio/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PIZZA pIZZA = db.PIZZA.Find(id);
-            if (pIZZA == null)
+            DETTAGLIO dETTAGLIO = db.DETTAGLIO.Find(id);
+            if (dETTAGLIO == null)
             {
                 return HttpNotFound();
             }
-            return View(pIZZA);
+            return View(dETTAGLIO);
         }
 
-        // GET: MenuPizza/Create
+        // GET: Dettaglio/Create
         public ActionResult Create()
         {
+            ViewBag.IdOrdine = new SelectList(db.ORDINE, "IdOrdne", "Note");
+            ViewBag.IdPizza = new SelectList(db.PIZZA, "IdPizza", "NomePizza");
             return View();
         }
 
-        // POST: MenuPizza/Create
+        // POST: Dettaglio/Create
         // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( PIZZA pIZZA, HttpPostedFileBase File)
+        public ActionResult Create([Bind(Include = "IdDettaglio,Quantita,IdPizza,IdOrdine")] DETTAGLIO dETTAGLIO)
         {
             if (ModelState.IsValid)
             {
-                File.SaveAs(Server.MapPath("/Content/img/" + File.FileName));
-                pIZZA.Foto = File.FileName;
-
-                db.PIZZA.Add(pIZZA);
+                db.DETTAGLIO.Add(dETTAGLIO);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(pIZZA);
+            ViewBag.IdOrdine = new SelectList(db.ORDINE, "IdOrdne", "Note", dETTAGLIO.IdOrdine);
+            ViewBag.IdPizza = new SelectList(db.PIZZA, "IdPizza", "NomePizza", dETTAGLIO.IdPizza);
+            return View(dETTAGLIO);
         }
 
-        // GET: MenuPizza/Edit/5
+        // GET: Dettaglio/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PIZZA pIZZA = db.PIZZA.Find(id);
-            if (pIZZA == null)
+            DETTAGLIO dETTAGLIO = db.DETTAGLIO.Find(id);
+            if (dETTAGLIO == null)
             {
                 return HttpNotFound();
             }
-            return View(pIZZA);
+            ViewBag.IdOrdine = new SelectList(db.ORDINE, "IdOrdne", "Note", dETTAGLIO.IdOrdine);
+            ViewBag.IdPizza = new SelectList(db.PIZZA, "IdPizza", "NomePizza", dETTAGLIO.IdPizza);
+            return View(dETTAGLIO);
         }
 
-        // POST: MenuPizza/Edit/5
+        // POST: Dettaglio/Edit/5
         // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( PIZZA pIZZA, HttpPostedFileBase File)
+        public ActionResult Edit([Bind(Include = "IdDettaglio,Quantita,IdPizza,IdOrdine")] DETTAGLIO dETTAGLIO)
         {
-
-            if (File != null)
+            if (ModelState.IsValid)
             {
-                string Path = Server.MapPath("/Content/img/" + File.FileName);
-                File.SaveAs(Path);
-                pIZZA.Foto = File.FileName;
+                db.Entry(dETTAGLIO).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            else
-            {
-                PIZZA p = db.PIZZA.Find(pIZZA.IdPizza);
-                pIZZA.Foto = p.Foto;
-            }
-            ModelDBcontext db1 = new ModelDBcontext();
-            db1.Entry(pIZZA).State = EntityState.Modified;
-            db1.SaveChanges();
-
-            return RedirectToAction("ListaAdmin");
+            ViewBag.IdOrdine = new SelectList(db.ORDINE, "IdOrdne", "Note", dETTAGLIO.IdOrdine);
+            ViewBag.IdPizza = new SelectList(db.PIZZA, "IdPizza", "NomePizza", dETTAGLIO.IdPizza);
+            return View(dETTAGLIO);
         }
 
-        // GET: MenuPizza/Delete/5
+        // GET: Dettaglio/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PIZZA pIZZA = db.PIZZA.Find(id);
-            if (pIZZA == null)
+            DETTAGLIO dETTAGLIO = db.DETTAGLIO.Find(id);
+            if (dETTAGLIO == null)
             {
                 return HttpNotFound();
             }
-            return View(pIZZA);
+            return View(dETTAGLIO);
         }
 
-        // POST: MenuPizza/Delete/5
+        // POST: Dettaglio/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PIZZA pIZZA = db.PIZZA.Find(id);
-            db.PIZZA.Remove(pIZZA);
+            DETTAGLIO dETTAGLIO = db.DETTAGLIO.Find(id);
+            db.DETTAGLIO.Remove(dETTAGLIO);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

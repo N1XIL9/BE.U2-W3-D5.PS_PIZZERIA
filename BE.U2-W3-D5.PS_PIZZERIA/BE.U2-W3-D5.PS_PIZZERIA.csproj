@@ -129,8 +129,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DettaglioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuPizzaController.cs" />
+    <Compile Include="Controllers\OrdineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,7 +167,6 @@
     <Content Include="Content\img\margherita.jpg" />
     <Content Include="Content\img\Menù-Pizzeria_Bianco-e-Nero.jpeg" />
     <Content Include="Content\img\napoletana.jpg" />
-    <Content Include="Content\img\puttanesca.jpg" />
     <Content Include="Content\img\sfdn.JPG" />
     <Content Include="Content\img\sfondo.JPG" />
     <Content Include="Content\img\—Pngtree—pizza logo design_8363624.png" />
@@ -230,6 +231,12 @@
     <Content Include="Views\MenuPizza\Edit.cshtml" />
     <Content Include="Views\MenuPizza\Index.cshtml" />
     <Content Include="Views\MenuPizza\ListaAdmin.cshtml" />
+    <Content Include="Views\Ordine\Create.cshtml" />
+    <Content Include="Views\Ordine\Delete.cshtml" />
+    <Content Include="Views\Ordine\Edit.cshtml" />
+    <Content Include="Views\Ordine\Index.cshtml" />
+    <Content Include="Views\Dettaglio\Delete.cshtml" />
+    <Content Include="Views\Dettaglio\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

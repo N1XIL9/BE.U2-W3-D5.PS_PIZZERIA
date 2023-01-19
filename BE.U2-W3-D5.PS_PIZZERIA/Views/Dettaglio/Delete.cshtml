@@ -1,0 +1,48 @@
+﻿@model BE.U2_W3_D5.PS_PIZZERIA.Models.DETTAGLIO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DETTAGLIO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDINE.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDINE.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PIZZA.NomePizza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PIZZA.NomePizza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantita)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

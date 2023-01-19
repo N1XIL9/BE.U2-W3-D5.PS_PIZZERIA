@@ -27,8 +27,16 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         public string Confermato { get; set; }
 
         [Required]
-        [StringLength(10)]
-        public string TotaleImporto { get; set; }
+        [Display(Name = "Importo Aggiunta")]
+        [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
+        public decimal Importo { get; set; }
+
+        [Required]
+        [Display(Name ="Totale da pagare")]
+        [Column(TypeName = "money")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
+        public decimal TotaleImporto { get; set; }
 
         [Required]
         [StringLength(50)]

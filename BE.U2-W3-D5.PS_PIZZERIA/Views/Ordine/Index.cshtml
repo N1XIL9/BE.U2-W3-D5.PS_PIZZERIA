@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BE.U2_W3_D5.PS_PIZZERIA.Models.ORDINE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>DETTAGLI COMANDA</h2>
+<div class="container" id="areaRiservata">
+    <p>
+        @Html.ActionLink("Nuova comanda", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.USER.Username)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Confermato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Importo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotaleImporto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaso)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.USER.Username)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Confermato)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Importo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotaleImporto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evaso)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifica", "Edit", new { id = item.IdOrdne }) |
+                    @Html.ActionLink("Elimina", "Delete", new { id = item.IdOrdne })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -20,8 +20,8 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ORDINE>()
-                .Property(e => e.TotaleImporto)
-                .IsFixedLength();
+                .Property(e => e.TotaleImporto);
+                
 
             modelBuilder.Entity<ORDINE>()
                 .HasMany(e => e.DETTAGLIO)
