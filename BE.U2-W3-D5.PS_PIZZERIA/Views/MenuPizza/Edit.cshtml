@@ -7,7 +7,8 @@
 <h2>Modifica Pizza</h2>
 
 <div class="container" id="areaRiservata">
-    @using (Html.BeginForm())
+
+    @using (Html.BeginForm("Edit", "MenuPizza", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
@@ -44,7 +45,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Foto, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Foto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextBox("File", null,  new { @class = "form-control", @type = "File" } )
                     @Html.ValidationMessageFor(model => model.Foto, "", new { @class = "text-danger" })
                 </div>
             </div>

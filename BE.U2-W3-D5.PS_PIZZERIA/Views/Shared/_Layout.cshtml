@@ -23,7 +23,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                
+
                 <ul class="navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
@@ -39,19 +39,19 @@
                     <li class="nav-item">@Html.ActionLink("Informazioni", "About", "Home")</li>
                     <li class="nav-item">@Html.ActionLink("Contatto", "Contact", "Home")</li>
                 </ul>
-                
+
             </div>
         </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
-      
+
     </div>
 
 
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET by Nicola Lerra</p>
-        </footer>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET by Nicola Lerra</p>
+    </footer>
 
 
 
@@ -96,15 +96,16 @@
             </div>
         </div>*@
     @*<div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
-        </footer>
-    </div>*@
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
+            </footer>
+        </div>*@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>

@@ -21,23 +21,28 @@
                 <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.NomePizza)</h5>
+                    </div>
+                <div class="card-body">
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Ingredienti)</p>
                 </div>
-                <div class="card-body">
+                <div class="card-text">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Prezzo)</h5>
 
                 </div>
-                @*<div id="contBtn">
+                <div id="contBtn">
                     <div class="btn btn-primary">
+                        <a href="https://cdn.w600.comps.canstockphoto.com/cat-with-pizza-opens-door-stock-photography_csp77257209.jpg" >ORDINA</a>
+                    </div>
+                    @*<div class="btn btn-primary">
                         @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza })
-                    </div>
-                    <div class="btn btn-primary">
+                    </div>*@
+                    @*<div class="btn btn-primary">
                         @Html.ActionLink("Dettagli", "Details", new { id = item.IdPizza })
-                    </div>
+                     </div>
                     <div class="btn btn-primary">
-                        @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
-                    </div>
-                </div>*@
+                         @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
+                    </div>*@
+                </div>
             </div>
         }
     </div>

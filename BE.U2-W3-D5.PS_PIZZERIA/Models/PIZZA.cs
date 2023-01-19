@@ -24,16 +24,16 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         public string NomePizza { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(maximumLength:100)]
         public string Ingredienti { get; set; }
 
         [Required]
-        
+        [Column(TypeName ="money")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
 
         public decimal Prezzo { get; set; }
 
-        [Required]
+       
         [StringLength(50)]
         public string Foto { get; set; }
 

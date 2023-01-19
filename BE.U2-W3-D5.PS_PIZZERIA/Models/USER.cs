@@ -36,6 +36,7 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         public string Ruolo { get; set; }
 
 
+        //AUTENTICAZIONE
         public static bool Autenticato(string username, string password)
         { 
        
