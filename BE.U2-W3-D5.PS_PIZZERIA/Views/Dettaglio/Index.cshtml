@@ -6,44 +6,47 @@
 
 <h2>DETTAGLI DEGLI ORDINI</h2>
 
-<div class="container" id="areaRiservata">
+<div class="container-fluid" id="bgMenu">
 
-    @*<p>
-            @Html.ActionLink("Create New", "Create")
-        </p>*@
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ORDINE.Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PIZZA.NomePizza)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantita)
-            </th>
-            <th></th>
-        </tr>
+    <div class="container" id="areaRiservata">
 
-        @foreach (var item in Model)
-        {
+        @*<p>
+                @Html.ActionLink("Create New", "Create")
+            </p>*@
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ORDINE.Note)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PIZZA.NomePizza)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantita)
-                </td>
-                <td>
-                    @Html.ActionLink("Modifica", "Edit", new { id = item.IdDettaglio }) |
-                   
-                    @Html.ActionLink("Elimina", "Delete", new { id = item.IdDettaglio })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.ORDINE.Note)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PIZZA.NomePizza)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantita)
+                </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ORDINE.Note)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PIZZA.NomePizza)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantita)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Modifica", "Edit", new { id = item.IdDettaglio }) |
+
+                        @Html.ActionLink("Elimina", "Delete", new { id = item.IdDettaglio })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
 </div>

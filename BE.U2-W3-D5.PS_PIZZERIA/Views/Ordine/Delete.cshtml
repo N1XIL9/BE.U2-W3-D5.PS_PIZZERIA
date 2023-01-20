@@ -5,71 +5,73 @@
 }
 
 <h2>ELIMINA LA COMANDA</h2>
+<div class="container-fluid" id="bgMenu">
 
-<div class="container" id="areaRiservata">
+    <div class="container" id="areaRiservata">
 
-    <div>
-    <h3>Sei sicuro di voler eliminare questa comanda?</h3>
-       
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.USER.Username)
-            </dt>
+        <div>
+            <h3>Sei sicuro di voler eliminare questa comanda?</h3>
 
-            <dd>
-                @Html.DisplayFor(model => model.USER.Username)
-            </dd>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.USER.Username)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Note)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.USER.Username)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Note)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Note)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Confermato)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Note)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Confermato)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Confermato)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Importo)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Confermato)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Importo)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Importo)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.TotaleImporto)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Importo)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.TotaleImporto)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TotaleImporto)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Evaso)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TotaleImporto)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Evaso)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Evaso)
+                </dt>
 
-        </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.Evaso)
+                </dd>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+            </dl>
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Elimina" class="btn btn-default"  id="salva" /> |
-                @Html.ActionLink("Annulla", "Index")
-            </div>
-        }
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Elimina" class="btn btn-default" id="salva" /> |
+                    @Html.ActionLink("Annulla", "Index")
+                </div>
+            }
+        </div>
     </div>
 </div>

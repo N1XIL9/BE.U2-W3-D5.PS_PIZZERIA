@@ -10,8 +10,8 @@
     @*<p>
         @Html.ActionLink("Crea Pizza", "Create")
     </p>*@
-
-    <div class="flexCard">
+<div class="container-fluid" id="bgMenu">
+    <div class="flexCard container">
 
         @foreach (var item in Model)
         {
@@ -21,35 +21,57 @@
                 <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.NomePizza)</h5>
-                    </div>
+                </div>
                 <div class="card-body">
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Ingredienti)</p>
                 </div>
+
+                <div class="card-text">
+                    <h5 class="card-title quantita"><input type="number" /></h5>
+
+
+                </div>
+
                 <div class="card-text">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Prezzo)</h5>
 
                 </div>
-                <div id="contBtn">
-                    <div class="btn btn-primary">
-                        <a href="https://cdn.w600.comps.canstockphoto.com/cat-with-pizza-opens-door-stock-photography_csp77257209.jpg" >ORDINA</a>
+                
+                    <div class="btn btn-primary" id="contBtn" >
+                        <a href="#" data-id="@item.IdPizza" class="OrdinaBtn">ORDINA</a>
                     </div>
-                    @*<div class="btn btn-primary">
-                        @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza })
-                    </div>*@
-                    @*<div class="btn btn-primary">
-                        @Html.ActionLink("Dettagli", "Details", new { id = item.IdPizza })
-                     </div>
-                    <div class="btn btn-primary">
-                         @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
-                    </div>*@
-                </div>
+
+
+
             </div>
+
+                    @*<div class="btn btn-primary">
+                @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza })
+            </div>*@
+                    @*<div class="btn btn-primary">
+                @Html.ActionLink("Dettagli", "Details", new { id = item.IdPizza })
+             </div>
+            <div class="btn btn-primary">
+                 @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
+            </div>*@
+           
         }
     </div>
 
 
+</div>
 
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        var baseUrl = "/Dettaglio/Index/";
+        $(".OrdinaBtn").click(function () {
+            var id = $(this).data("id");
+            var quantity = $(this).parent("div").siblings(".quantita").children("input").val();
+            location.href = baseUrl + "?id=" + id + "&quantity=" + quantity;
+        });
+    })
+</script>
 
 
 

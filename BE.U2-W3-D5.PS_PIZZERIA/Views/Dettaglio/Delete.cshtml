@@ -5,45 +5,47 @@
 }
 
 <h2>ELIMINA ORDINE</h2>
+<div class="container-fluid" id="bgMenu">
 
-<div class="container" id="areaRiservata">
+    <div class="container" id="areaRiservata">
 
-<h3>Sei sicuro di voler eliminare questo ordine?</h3>
+        <h3>Sei sicuro di voler eliminare questo ordine?</h3>
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ORDINE.Note)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ORDINE.Note)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ORDINE.Note)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ORDINE.Note)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PIZZA.NomePizza)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PIZZA.NomePizza)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PIZZA.NomePizza)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PIZZA.NomePizza)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Quantita)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantita)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Quantita)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Quantita)
+            </dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
 </div>

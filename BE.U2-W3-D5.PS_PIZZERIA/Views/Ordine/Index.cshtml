@@ -5,6 +5,8 @@
 }
 
 <h2>DETTAGLI COMANDA</h2>
+
+<div class="container-fluid" id="bgMenu">
 <div class="container" id="areaRiservata">
     <p>
         @Html.ActionLink("Nuova comanda", "Create")
@@ -20,9 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Confermato)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Importo)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.TotaleImporto)
             </th>
@@ -44,9 +46,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Confermato)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Importo)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.TotaleImporto)
                 </td>
@@ -61,4 +63,5 @@
         }
 
     </table>
+</div>
 </div>

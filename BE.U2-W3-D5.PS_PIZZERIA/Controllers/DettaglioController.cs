@@ -10,15 +10,28 @@ using BE.U2_W3_D5.PS_PIZZERIA.Models;
 
 namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
 {
+    [Authorize]
     public class DettaglioController : Controller
     {
         private ModelDBcontext db = new ModelDBcontext();
 
         // GET: Dettaglio
-        public ActionResult Index()
+        public ActionResult Index(int id, int quantity)
         {
-            var dETTAGLIO = db.DETTAGLIO.Include(d => d.ORDINE).Include(d => d.PIZZA);
-            return View(dETTAGLIO.ToList());
+            if (id > 0)
+            {
+                DETTAGLIO d = new DETTAGLIO();
+                d.IdPizza = id;
+                d.Quantita = quantity;
+                PIZZA p = db.PIZZA.Find(id);
+                d.PIZZA.Prezzo = p.Prezzo *d.Quantita;
+                
+
+                db.DETTAGLIO.Add(d);
+                db.SaveChanges();
+            }
+
+            return View(db.DETTAGLIO.Where(x => x.IdOrdine == 0).ToList());
         }
 
         // GET: Dettaglio/Details/5

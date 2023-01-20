@@ -10,19 +10,18 @@ using BE.U2_W3_D5.PS_PIZZERIA.Models;
 
 namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class MenuPizzaController : Controller
     {
         private ModelDBcontext db = new ModelDBcontext();
 
         // GET: MenuPizza
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.PIZZA.ToList());
         }
 
-
-        [Authorize]
         public ActionResult ListaAdmin()
         {
             return View(db.PIZZA.ToList());

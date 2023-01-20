@@ -141,6 +141,7 @@
     <Compile Include="Models\ModelDBcontext.cs" />
     <Compile Include="Models\ORDINE.cs" />
     <Compile Include="Models\PIZZA.cs" />
+    <Compile Include="Models\Ruoli.cs" />
     <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

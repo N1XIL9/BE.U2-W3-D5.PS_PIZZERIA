@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
 
-
+<div class="d-flex flex-column main">  
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="~/Views/MenuPizza/Index.cshtml">
@@ -33,16 +34,29 @@
                     {
                         <li class="nav-item">@Html.ActionLink("🔒 ENTRA", "Login", "Home") </li>
                     }
+
+                    @if (User.Identity.Name == "Admin")
+                    {
+                        
                     <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "MenuPizza")</li>
+
+                    }
                     <li class="nav-item">@Html.ActionLink("MENU", "Index", "MenuPizza")</li>
 
-                    <li class="nav-item">@Html.ActionLink("INFO", "Index", "Ordine")</li>
-                    <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Dettaglio")</li>
+                    @if (User.Identity.Name == "Admin")
+                    {
+                        <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Ordine")</li>
+
+                    }
+
+                    <li class="nav-item">@Html.ActionLink("CARRELLO", "Index", "Dettaglio")</li>
                 </ul>
 
             </div>
         </div>
     </nav>
+    
+
     <div >
         @RenderBody()
 
@@ -54,7 +68,7 @@
     </footer>
 
 
-
+    </div>
 
 
 
@@ -103,7 +117,6 @@
             </footer>
         </div>*@
 
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

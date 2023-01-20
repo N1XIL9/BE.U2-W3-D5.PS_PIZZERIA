@@ -6,38 +6,41 @@
 
 <h2>DETTAGLI DELLA TUA PIZZA</h2>
 
-<div class="container " id="areaRiservata">
+<div class="container-fluid" id="bgMenu">
 
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomePizza)
-        </dt>
+    <div class="container " id="areaRiservata">
 
-        <dd>
-            @Html.DisplayFor(model => model.NomePizza)
-        </dd>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NomePizza)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ingredienti)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NomePizza)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Ingredienti)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ingredienti)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prezzo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ingredienti)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prezzo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </dt>
 
-       
+            <dd>
+                @Html.DisplayFor(model => model.Prezzo)
+            </dd>
 
-    </dl>
-<p>
-    @Html.ActionLink("Modifica", "Edit", new { id = Model.IdPizza }) |
-    @Html.ActionLink("Ritorna all'area riservata", "ListaAdmin")
-</p>
+
+
+        </dl>
+        <p>
+            @Html.ActionLink("Modifica", "Edit", new { id = Model.IdPizza }) |
+            @Html.ActionLink("Ritorna all'area riservata", "ListaAdmin")
+        </p>
+    </div>
 </div>

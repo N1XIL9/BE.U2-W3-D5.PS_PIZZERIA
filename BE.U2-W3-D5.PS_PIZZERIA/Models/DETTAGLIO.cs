@@ -16,7 +16,7 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
 
         public int IdPizza { get; set; }
 
-        public int IdOrdine { get; set; }
+        public int IdOrdine { get; set; } = 0;
 
         public virtual ORDINE ORDINE { get; set; }
 
