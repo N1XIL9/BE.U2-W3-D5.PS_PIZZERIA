@@ -37,20 +37,27 @@
 
                     @if (User.Identity.Name == "Admin")
                     {
-                        
-                    <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "MenuPizza")</li>
+
+                        <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "MenuPizza")</li>
 
                     }
                     <li class="nav-item">@Html.ActionLink("MENU", "Index", "MenuPizza")</li>
 
                     @if (User.Identity.Name == "Admin")
                     {
+
                         <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Ordine")</li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">@Html.ActionLink("ORDINI", "OrdineConfermato", "Ordine")</li>
 
                     }
-
-                    <li class="nav-item">@Html.ActionLink("CARRELLO", "Index", "Dettaglio")</li>
-                </ul>
+                    @if (User.Identity.Name == "User")
+                    {
+                        <li class="nav-item">@Html.ActionLink("CARRELLO", "Carrello", "Dettaglio")</li>
+                    }
+                    </ul>
 
             </div>
         </div>

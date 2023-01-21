@@ -19,23 +19,33 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
+
+            modelBuilder.Entity<DETTAGLIO>()
+                 .Property(e => e.PrezzoTotale)
+                 .HasPrecision(19, 4);
+
             modelBuilder.Entity<ORDINE>()
-                .Property(e => e.TotaleImporto);
-                
+                .Property(e => e.TotaleImporto)
+                .HasPrecision(19, 4);
 
             modelBuilder.Entity<ORDINE>()
                 .HasMany(e => e.DETTAGLIO)
-                .WithRequired(e => e.ORDINE)
-                .HasForeignKey(e => e.IdOrdine)
-                .WillCascadeOnDelete(false);
+                .WithOptional(e => e.ORDINE)
+                .HasForeignKey(e => e.IdOrdine);
 
             modelBuilder.Entity<PIZZA>()
-                .Property(e => e.Prezzo);
-                
+                .Property(e => e.Prezzo)
+                .HasPrecision(19, 4);
 
             modelBuilder.Entity<PIZZA>()
                 .HasMany(e => e.DETTAGLIO)
                 .WithRequired(e => e.PIZZA)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<USER>()
+                .HasMany(e => e.DETTAGLIO)
+                .WithRequired(e => e.USER)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<USER>()

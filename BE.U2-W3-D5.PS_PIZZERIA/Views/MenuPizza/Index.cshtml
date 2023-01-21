@@ -26,7 +26,7 @@
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Ingredienti)</p>
                 </div>
 
-                <div class="card-text">
+                <div class="card-text qta" >
                     <h5 class="card-title quantita"><input type="number" /></h5>
 
 
@@ -37,6 +37,7 @@
 
                 </div>
                 
+
                     <div class="btn btn-primary" id="contBtn" >
                         <a href="#" data-id="@item.IdPizza" class="OrdinaBtn">ORDINA</a>
                     </div>
@@ -67,7 +68,8 @@
         var baseUrl = "/Dettaglio/Index/";
         $(".OrdinaBtn").click(function () {
             var id = $(this).data("id");
-            var quantity = $(this).parent("div").siblings(".quantita").children("input").val();
+            var quantity = $(this).parent("#contBtn").siblings(".qta").children(".quantita").children("input").val();
+            
             location.href = baseUrl + "?id=" + id + "&quantity=" + quantity;
         });
     })

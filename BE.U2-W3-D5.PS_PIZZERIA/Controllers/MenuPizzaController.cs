@@ -10,7 +10,7 @@ using BE.U2_W3_D5.PS_PIZZERIA.Models;
 
 namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Amministratore")]
     public class MenuPizzaController : Controller
     {
         private ModelDBcontext db = new ModelDBcontext();

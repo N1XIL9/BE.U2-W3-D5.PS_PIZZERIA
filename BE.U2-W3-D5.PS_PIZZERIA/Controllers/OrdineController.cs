@@ -10,16 +10,28 @@ using BE.U2_W3_D5.PS_PIZZERIA.Models;
 
 namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
 {
-    //[Authorize(Roles ="Admin")]
+    [Authorize]
+
     public class OrdineController : Controller
     {
+
         private ModelDBcontext db = new ModelDBcontext();
 
         // GET: Ordine
         public ActionResult Index()
         {
+
             var oRDINE = db.ORDINE.Include(o => o.USER);
             return View(oRDINE.ToList());
+        }
+
+        public ActionResult OrdineConfermato()
+        {
+            
+                USER u = db.USER.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
+                List<ORDINE> oRDINEs = db.ORDINE.Where(x => x.IdUser == u.IdUser).ToList();
+                return View(oRDINEs);
+            
         }
 
         // GET: Ordine/Details/5
@@ -40,8 +52,17 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
         // GET: Ordine/Create
         public ActionResult Create()
         {
-            ViewBag.IdUser = new SelectList(db.USER, "IdUser", "Username");
-            return View();
+            ORDINE o = new ORDINE();
+            USER u = db.USER.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
+            List<DETTAGLIO> d = db.DETTAGLIO.Where(x => x.IdOrdine == null && x.IdUser == u.IdUser).ToList();
+            o.TotaleImporto = d.Sum(x => x.PrezzoTotale);         
+            o.IdUser = u.IdUser;
+            o.DETTAGLIO = d;
+            o.USER = u;
+
+
+            return View(o);
+            
         }
 
         // POST: Ordine/Create
@@ -49,17 +70,15 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdOrdne,Note,Confermato,Importo,TotaleImporto,Evaso,IdUser")] ORDINE oRDINE)
+        public ActionResult Create( ORDINE o)
         {
-            if (ModelState.IsValid)
-            {
-                db.ORDINE.Add(oRDINE);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            ViewBag.IdUser = new SelectList(db.USER, "IdUser", "Username", oRDINE.IdUser);
-            return View(oRDINE);
+            o.Confermato = "Si";
+            o.Evaso = "No";
+            db.ORDINE.Add(o);
+            db.SaveChanges();
+            return RedirectToAction("OrdineConfermato");
+                    
         }
 
         // GET: Ordine/Edit/5

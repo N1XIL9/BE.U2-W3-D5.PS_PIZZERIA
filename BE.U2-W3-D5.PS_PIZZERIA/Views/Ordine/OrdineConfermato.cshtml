@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BE.U2_W3_D5.PS_PIZZERIA.Models.ORDINE>
+
+@{
+    ViewBag.Title = "OrdineConfermato";
+}
+
+<h2>OrdineConfermato</h2>
+<div class="container-fluid" id="bgMenu">
+    <div class="container" id="areaRiservata">
+        <table class="table">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Note)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Confermato)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.TotaleImporto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Evaso)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Note)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Confermato)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotaleImporto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Evaso)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

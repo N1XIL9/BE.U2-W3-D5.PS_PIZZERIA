@@ -238,6 +238,9 @@
     <Content Include="Views\Ordine\Index.cshtml" />
     <Content Include="Views\Dettaglio\Delete.cshtml" />
     <Content Include="Views\Dettaglio\Index.cshtml" />
+    <Content Include="Views\Dettaglio\Carrello.cshtml" />
+    <Content Include="Views\Dettaglio\Edit.cshtml" />
+    <Content Include="Views\Ordine\OrdineConfermato.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

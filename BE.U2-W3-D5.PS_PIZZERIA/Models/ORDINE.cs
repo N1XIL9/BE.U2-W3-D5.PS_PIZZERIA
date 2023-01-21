@@ -26,11 +26,6 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         [StringLength(50)]
         public string Confermato { get; set; }
 
-        [Required]
-        [Display(Name = "Importo Aggiunta")]
-        [Column(TypeName = "money")]
-        [DisplayFormat(DataFormatString = "{0:C2}")]
-        public decimal Importo { get; set; }
 
         [Required]
         [Display(Name ="Totale da pagare")]

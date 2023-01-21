@@ -14,12 +14,20 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
 
         public int Quantita { get; set; }
 
+        [Display(Name ="Totale da pagare")]
+        public decimal PrezzoTotale { get; set; }
+
+
         public int IdPizza { get; set; }
 
-        public int IdOrdine { get; set; } = 0;
+        public int? IdOrdine { get; set; }
+
+        public int IdUser { get; set; }
 
         public virtual ORDINE ORDINE { get; set; }
 
         public virtual PIZZA PIZZA { get; set; }
+
+        public virtual USER USER { get; set; }
     }
 }

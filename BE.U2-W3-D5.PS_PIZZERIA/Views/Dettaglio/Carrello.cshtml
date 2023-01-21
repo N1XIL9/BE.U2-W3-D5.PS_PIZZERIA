@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BE.U2_W3_D5.PS_PIZZERIA.Models.DETTAGLIO>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Carrello";
 }
 
 <h2>CARRELLO</h2>
@@ -11,8 +11,8 @@
     <div class="container" id="areaRiservata">
 
         @*<p>
-                @Html.ActionLink("Create New", "Create")
-            </p>*@
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
         <table class="table">
             <tr>
 
@@ -31,7 +31,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                   
+
                     <td>
                         @Html.DisplayFor(modelItem => item.PIZZA.NomePizza)
                     </td>
@@ -47,8 +47,12 @@
                         @Html.ActionLink("Elimina", "Delete", new { id = item.IdDettaglio })
                     </td>
                 </tr>
+
+
             }
 
         </table>
+            <btn class="btn btn-default" id="salva"> <a href="/Ordine/Create">CONFERMA ORDINE</a></btn>
+
     </div>
 </div>

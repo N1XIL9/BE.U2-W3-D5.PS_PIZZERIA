@@ -18,20 +18,29 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
         // GET: Dettaglio
         public ActionResult Index(int id, int quantity)
         {
+                USER utente = db.USER.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
             if (id > 0)
             {
                 DETTAGLIO d = new DETTAGLIO();
                 d.IdPizza = id;
                 d.Quantita = quantity;
                 PIZZA p = db.PIZZA.Find(id);
-                d.PIZZA.Prezzo = p.Prezzo *d.Quantita;
+                d.PrezzoTotale = p.Prezzo * d.Quantita;
+                d.IdUser = utente.IdUser;
                 
 
                 db.DETTAGLIO.Add(d);
                 db.SaveChanges();
             }
 
-            return View(db.DETTAGLIO.Where(x => x.IdOrdine == 0).ToList());
+            return View(db.DETTAGLIO.Where(x => x.IdOrdine == null && x.IdUser == utente.IdUser).ToList());
+        }
+
+        public ActionResult Carrello()
+        {
+            USER utente = db.USER.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
+            List<DETTAGLIO> dtg = db.DETTAGLIO.Include(x =>x.PIZZA).Where(d => d.IdOrdine == null && d.IdUser == utente.IdUser).ToList();
+            return View(dtg);
         }
 
         // GET: Dettaglio/Details/5
@@ -83,14 +92,10 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DETTAGLIO dETTAGLIO = db.DETTAGLIO.Find(id);
-            if (dETTAGLIO == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.IdOrdine = new SelectList(db.ORDINE, "IdOrdne", "Note", dETTAGLIO.IdOrdine);
-            ViewBag.IdPizza = new SelectList(db.PIZZA, "IdPizza", "NomePizza", dETTAGLIO.IdPizza);
-            return View(dETTAGLIO);
+            DETTAGLIO d = db.DETTAGLIO.Find(id);
+           
+           
+            return View(d);
         }
 
         // POST: Dettaglio/Edit/5
@@ -98,17 +103,20 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdDettaglio,Quantita,IdPizza,IdOrdine")] DETTAGLIO dETTAGLIO)
+        public ActionResult Edit( DETTAGLIO d)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(dETTAGLIO).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                USER utente = db.USER.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
+                DETTAGLIO dettaglio = db.DETTAGLIO.Find(d.IdDettaglio);
+                d.PrezzoTotale = dettaglio.PIZZA.Prezzo * d.Quantita;
+                d.IdUser = utente.IdUser;
+                ModelDBcontext db1 = new ModelDBcontext();
+                db1.Entry(d).State = EntityState.Modified;
+                db1.SaveChanges();
             }
-            ViewBag.IdOrdine = new SelectList(db.ORDINE, "IdOrdne", "Note", dETTAGLIO.IdOrdine);
-            ViewBag.IdPizza = new SelectList(db.PIZZA, "IdPizza", "NomePizza", dETTAGLIO.IdPizza);
-            return View(dETTAGLIO);
+          
+            return RedirectToAction("Carrello");
         }
 
         // GET: Dettaglio/Delete/5
@@ -134,7 +142,7 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Controllers
             DETTAGLIO dETTAGLIO = db.DETTAGLIO.Find(id);
             db.DETTAGLIO.Remove(dETTAGLIO);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Carrello");
         }
 
         protected override void Dispose(bool disposing)

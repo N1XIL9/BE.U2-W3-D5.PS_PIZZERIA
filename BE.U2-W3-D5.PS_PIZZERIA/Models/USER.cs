@@ -14,7 +14,9 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public USER()
         {
+            DETTAGLIO = new HashSet<DETTAGLIO>();
             ORDINE = new HashSet<ORDINE>();
+
         }
 
         [Key]
@@ -79,6 +81,8 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         //    }
            //return false;
         }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DETTAGLIO> DETTAGLIO { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDINE> ORDINE { get; set; }
