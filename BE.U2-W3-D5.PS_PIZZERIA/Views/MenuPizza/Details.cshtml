@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>DETTAGLI DELLA TUA PIZZA</h2>
+<h2 >DETTAGLI DELLA TUA PIZZA</h2>
 
 <div class="container-fluid" id="bgMenu">
 
     <div class="container " id="areaRiservata">
 
         <dl class="dl-horizontal">
-            <dt>
+            <dt class="fade-in-right">
                 @Html.DisplayNameFor(model => model.NomePizza)
             </dt>
 
@@ -19,7 +19,7 @@
                 @Html.DisplayFor(model => model.NomePizza)
             </dd>
 
-            <dt>
+            <dt class="fade-in-right">
                 @Html.DisplayNameFor(model => model.Ingredienti)
             </dt>
 
@@ -27,7 +27,7 @@
                 @Html.DisplayFor(model => model.Ingredienti)
             </dd>
 
-            <dt>
+            <dt class="fade-in-right">
                 @Html.DisplayNameFor(model => model.Prezzo)
             </dt>
 
@@ -38,7 +38,7 @@
 
 
         </dl>
-        <p>
+        <p >
             @Html.ActionLink("Modifica", "Edit", new { id = Model.IdPizza }) |
             @Html.ActionLink("Ritorna all'area riservata", "ListaAdmin")
         </p>

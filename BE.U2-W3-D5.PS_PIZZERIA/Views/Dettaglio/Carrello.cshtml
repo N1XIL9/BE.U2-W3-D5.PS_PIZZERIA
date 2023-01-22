@@ -32,16 +32,16 @@
             {
                 <tr>
 
-                    <td>
+                    <td class="fade-in-right">
                         @Html.DisplayFor(modelItem => item.PIZZA.NomePizza)
                     </td>
-                    <td>
+                    <td class="fade-in-right">
                         @Html.DisplayFor(modelItem => item.Quantita)
                     </td>
-                    <td>
+                    <td class="fade-in-right">
                         @Html.DisplayFor(modelItem => item.PrezzoTotale)
                     </td>
-                    <td>
+                    <td class="fade-in-right">
                         @Html.ActionLink("Modifica", "Edit", new { id = item.IdDettaglio }) |
 
                         @Html.ActionLink("Elimina", "Delete", new { id = item.IdDettaglio })

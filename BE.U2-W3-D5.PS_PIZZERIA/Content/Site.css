@@ -217,3 +217,29 @@ img, svg {
     padding: 10px;
     border: 1px solid orangered;
 }
+
+/* ANIMAZIONI*/
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInRight 1s ease-in-out forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 6;
+        transform: translateY(0);
+    }
+}

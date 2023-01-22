@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>MENU</h2>
+<h2 >MENU</h2>
 
 
     @*<p>
@@ -16,7 +16,7 @@
         @foreach (var item in Model)
         {
 
-            <div class="card" style="width: 18rem;">
+            <div class="card fade-in-right" style="width: 18rem;">
 
                 <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
                 <div class="card-body">
@@ -26,7 +26,7 @@
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Ingredienti)</p>
                 </div>
 
-                <div class="card-text qta" >
+                <div class="card-text qta">
                     <h5 class="card-title quantita"><input type="number" /></h5>
 
 
@@ -45,17 +45,6 @@
 
 
             </div>
-
-                    @*<div class="btn btn-primary">
-                @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza })
-            </div>*@
-                    @*<div class="btn btn-primary">
-                @Html.ActionLink("Dettagli", "Details", new { id = item.IdPizza })
-             </div>
-            <div class="btn btn-primary">
-                 @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
-            </div>*@
-           
         }
     </div>
 
@@ -75,47 +64,9 @@
     })
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.fade-in-right').addClass('animated fadeInRight');
+    });
 
-
-    @*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NomePizza)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ingredienti)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezzo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Foto)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomePizza)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ingredienti)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Prezzo)
-                </td>
-                <td>
-                    <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" width="100" />
-                </td>
-                <td>
-                    @Html.ActionLink("Modifica", "Edit", new { id = item.IdPizza }) |
-                    @Html.ActionLink("Dettagli", "Details", new { id = item.IdPizza }) |
-                    @Html.ActionLink("Elimina", "Delete", new { id = item.IdPizza })
-                </td>
-            </tr>
-        }
-
-    </table>*@
-@*</div>*@
+</script>

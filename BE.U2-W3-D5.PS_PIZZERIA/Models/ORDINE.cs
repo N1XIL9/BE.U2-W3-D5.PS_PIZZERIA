@@ -18,7 +18,7 @@ namespace BE.U2_W3_D5.PS_PIZZERIA.Models
         [Key]
         public int IdOrdne { get; set; }
 
-        [Required]
+        
         [StringLength(50)]
         public string Note { get; set; }
 
